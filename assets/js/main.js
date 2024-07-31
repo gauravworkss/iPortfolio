@@ -115,6 +115,32 @@
     });
   }
 
+  const typed_tools = document.querySelector('.typed_tools');
+  if (typed_tools) {
+    let typed_strings = typed_tools.getAttribute('data-typed-items');
+    typed_strings = typed_strings.split(',');
+    new Typed('.typed_tools', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
+    });
+  }
+
+  const typed_domains = document.querySelector('.typed_domains');
+  if (typed_domains) {
+    let typed_strings = typed_domains.getAttribute('data-typed-items');
+    typed_strings = typed_strings.split(',');
+    new Typed('.typed_domains', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
+    });
+  }
+
   const typed_hobbies = document.querySelector('.typed_hobbies');
   if (typed_hobbies) {
     let typed_strings = typed_hobbies.getAttribute('data-typed-items');
