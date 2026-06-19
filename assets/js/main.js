@@ -10,6 +10,7 @@
    * Header toggle
    */
   const headerToggleBtn = document.querySelector('.header-toggle');
+  const desktopNavToggleBtn = document.querySelector('.desktop-nav-toggle');
 
   function headerToggle() {
     document.querySelector('#header').classList.toggle('header-show');
@@ -17,6 +18,25 @@
     headerToggleBtn.classList.toggle('bi-x');
   }
   headerToggleBtn.addEventListener('click', headerToggle);
+
+  function toggleDesktopNavButtonIcon() {
+    if (!desktopNavToggleBtn) {
+      return;
+    }
+    const icon = desktopNavToggleBtn.querySelector('i');
+    const isCollapsed = document.body.classList.contains('desktop-nav-collapsed');
+    desktopNavToggleBtn.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+    icon.classList.toggle('bi-layout-sidebar-inset', !isCollapsed);
+    icon.classList.toggle('bi-layout-sidebar', isCollapsed);
+  }
+
+  if (desktopNavToggleBtn) {
+    desktopNavToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('desktop-nav-collapsed');
+      toggleDesktopNavButtonIcon();
+    });
+    toggleDesktopNavButtonIcon();
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
