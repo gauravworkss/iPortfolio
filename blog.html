@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Tech Blogs | Gaurav Saxena</title>
+  <meta content="Technical blogs by Gaurav Saxena on Java, Spring, microservices, and enterprise engineering." name="description">
+  <meta content="Java 8, Java 17, Java features, Spring blogs, enterprise Java" name="keywords">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page blog-page">
+
+<header id="header" class="header dark-background d-flex flex-column">
+  <i class="header-toggle d-xl-none bi bi-list"></i>
+
+  <div class="profile-img">
+    <img src="assets/img/my-profile-img.jpg" alt="Gaurav Saxena profile photo" class="img-fluid rounded-circle">
+  </div>
+
+  <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+    <h1 class="sitename">Gaurav Saxena</h1>
+  </a>
+
+  <div class="social-links text-center">
+    <a href="https://github.com/gauravworkss" class="github"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/gauravworks" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    <a href="mailto:saxenagau@gmail.com?subject=Let's%20connect" class="envelope"><i class="bi bi-envelope flex-shrink-0"></i></a>
+  </div>
+
+  <nav id="navmenu" class="navmenu">
+    <ul>
+      <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+      <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+      <li><a href="index.html#achievements"><i class="bi bi-graph-up-arrow navicon"></i> Achievements</a></li>
+      <li><a href="index.html#skills"><i class="bi bi-tools navicon"></i> Skills</a></li>
+      <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+      <li><a href="blog.html" class="active"><i class="bi bi-journal-richtext navicon"></i> Tech Blogs</a></li>
+      <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="main">
+  <section class="section light-background">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Tech Blogs</h2>
+      <p>Engineering insights on Java, Spring, scalability, and production excellence.</p>
+    </div>
+  </section>
+
+  <section id="java8-to-java17" class="section blog-article-page">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <article class="blog-article">
+        <div class="blog-meta">
+          <span><i class="bi bi-calendar3"></i> June 2026</span>
+          <span><i class="bi bi-clock-history"></i> 10 min read</span>
+          <span><i class="bi bi-tag"></i> Java</span>
+        </div>
+        <h1>Java 8 to Java 17: The Enterprise Upgrade Story Every Team Should Understand</h1>
+
+        <p>In most enterprise teams, Java 8 was never just a language version; it was the foundation of long-running systems that handled critical business workflows. For banking, payments, and regulated platforms, stability mattered more than chasing every release. That is exactly why many organizations now face the same question: how do we move from Java 8 to Java 17 in a way that is practical, low-risk, and strategically useful?</p>
+
+        <p>The good news is that Java did not evolve in random directions. From Java 8 to Java 17, the platform became more expressive for developers, more predictable in production, and more suitable for cloud-native workloads. If you look at these releases as a journey instead of isolated features, you can build a clear modernization roadmap.</p>
+
+        <h3>Java 8: The Productivity Inflection Point</h3>
+        <p>Java 8 introduced lambdas, streams, functional interfaces, and the new Date and Time API. Lambdas and streams reduced the amount of boilerplate around collection processing and made intent easier to read. The new time API solved years of pain caused by mutable date classes and timezone errors. Optional introduced explicit handling of absent values, encouraging safer APIs. For many teams, Java 8 marked the moment Java code started feeling cleaner without giving up strong typing and maintainability.</p>
+
+        <h3>Java 9: Modules and Better Platform Boundaries</h3>
+        <p>Java 9 brought the module system (Project Jigsaw), which was one of the most structural changes in Java history. Even if your application never became fully modular, this release mattered because it pushed the ecosystem toward stronger encapsulation and cleaner dependencies. Java 9 also introduced JShell for interactive experimentation, collection factory methods like <code>List.of()</code>, and improvements to the Process API. In enterprise terms, Java 9 started the conversation around intentional architecture instead of classpath sprawl.</p>
+
+        <h3>Java 10 and Java 11: Faster Delivery and a New LTS Rhythm</h3>
+        <p>Java 10 introduced local variable type inference with <code>var</code>. Used wisely, it improves readability by removing repetitive type declarations in obvious contexts while preserving static type safety. Java 11, the next Long-Term Support release, became a major upgrade target for many enterprises. It delivered the modern HTTP Client API, single-file source execution, and standardized APIs that replaced old Java EE modules removed from the JDK. Operationally, Java 11 also improved garbage collection options and runtime behavior, making it more cloud-friendly than Java 8.</p>
+
+        <h3>Java 12 and Java 13: Language Evolution Becomes Iterative</h3>
+        <p>These releases are often underestimated, but they changed how Java evolved. Switch expressions arrived as a preview and started removing classic switch fall-through mistakes while enabling expression-oriented coding. Text blocks also entered preview, making multiline JSON, SQL, and XML definitions far easier to maintain. For teams building integration-heavy services, this is not cosmetic improvement; cleaner literals reduce escaping bugs, improve readability in code reviews, and make maintenance faster.</p>
+
+        <h3>Java 14 and Java 15: Safer Data Modeling and Cleaner Syntax</h3>
+        <p>Java 14 introduced records in preview and delivered helpful NullPointerException messages. Records were important because they gave developers an official, concise way to model immutable data carriers without generating endless boilerplate. Java 15 finalized text blocks and added hidden classes, which helped frameworks and runtime tooling. Sealed classes also appeared in preview, opening a structured way to model bounded hierarchies. This is particularly useful when domain models must reflect strict business rules and allowed states.</p>
+
+        <h3>Java 16: Records Become Standard</h3>
+        <p>Java 16 finalized records and introduced pattern matching for <code>instanceof</code>. Together, these features made domain logic more expressive and less error-prone. Pattern matching reduced repetitive casts and made conditional type logic cleaner. Java 16 also added packaging tools such as <code>jpackage</code>, which simplified application distribution for specific environments. For platform teams, this release reinforced a trend: Java was no longer only about backwards compatibility; it was actively improving developer ergonomics without compromising performance.</p>
+
+        <h3>Java 17: The LTS Destination for Modern Enterprises</h3>
+        <p>Java 17 is the LTS release that brings this entire evolution into a stable foundation. Sealed classes were finalized, making it easier to define controlled inheritance models. Pattern matching for switch continued maturing, improving clarity in branching-heavy business code. Strong encapsulation of JDK internals became stricter, which can expose outdated dependencies but ultimately improves long-term maintainability and security posture. Java 17 also includes performance and GC refinements that align better with containerized and memory-aware deployments.</p>
+
+        <h3>Why These Features Matter in Real Projects</h3>
+        <p>From an enterprise engineering perspective, the value of Java 8 to Java 17 is not just syntax modernization. It is about reducing operational risk and improving delivery speed. Records and pattern matching reduce defect-prone boilerplate. Text blocks and switch expressions improve readability in integration-heavy services. Better runtime behavior and GC options improve throughput predictability under load. Stronger platform boundaries force dependency hygiene, which is essential for secure, auditable systems in regulated sectors.</p>
+
+        <h3>A Practical Migration Approach</h3>
+        <p>The best migration strategy is incremental and test-driven. Start by upgrading build pipelines, CI images, and container base images. Then validate third-party compatibility, especially libraries that relied on internal JDK APIs. Enable strict compiler and runtime warnings early, because they expose hidden technical debt before production does. Use modern language features selectively in new or frequently touched modules rather than refactoring every file at once. This gives teams measurable progress without destabilizing mature business flows.</p>
+
+        <h3>Final Thoughts</h3>
+        <p>Java's journey from 8 to 17 is a story of disciplined evolution. The platform stayed true to enterprise reliability while steadily improving developer productivity and runtime efficiency. If your systems still run on Java 8, moving to Java 17 is less about keeping up with trends and more about building a stronger long-term operating model. You gain clearer code, better observability fit, stronger security boundaries, and a modern LTS baseline that supports future innovation with confidence.</p>
+
+        <p>For engineering leaders, the takeaway is simple: treat the upgrade as a business capability program, not a version bump. Teams that modernize intentionally are better positioned to ship faster, recover quicker, and scale with fewer surprises.</p>
+      </article>
+
+      <div class="text-center mt-4">
+        <a href="index.html#blog" class="btn btn-outline-primary">Back to Portfolio</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer" class="footer position-relative light-background">
+  <div class="container">
+    <div class="copyright text-center">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Gaurav Saxena</strong> <span>All Rights Reserved</span></p>
+    </div>
+    <div class="credits">
+      Designed by <a href="https://gauravworks.in/">Gaurav</a>
+    </div>
+  </div>
+</footer>
+
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<div id="preloader"></div>
+
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/typed.js/typed.umd.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>
