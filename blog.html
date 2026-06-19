@@ -25,7 +25,7 @@
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
-<body class="index-page blog-page">
+<body class="index-page blog-page desktop-nav-collapsed">
 
 <header id="header" class="header dark-background d-flex flex-column">
   <i class="header-toggle d-xl-none bi bi-list"></i>
@@ -57,8 +57,12 @@
   </nav>
 </header>
 
-<button type="button" class="desktop-nav-toggle" aria-label="Toggle navigation panel" aria-expanded="true">
-  <i class="bi bi-layout-sidebar-inset"></i>
+<button type="button" class="desktop-nav-toggle" aria-label="Toggle navigation panel" aria-expanded="false">
+  <i class="bi bi-layout-sidebar"></i>
+</button>
+
+<button type="button" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">
+  <i class="bi bi-moon-stars"></i>
 </button>
 
 <main class="main">
@@ -71,9 +75,20 @@
 
   <section class="section">
     <div class="container" data-aos="fade-up" data-aos-delay="80">
-      <div class="blog-card">
-        <div class="blog-card-header">
-          <h4><a href="#java8-to-java17">Java 8 to Java 17: The Enterprise Upgrade Story Every Team Should Understand</a></h4>
+      <div class="row gy-4">
+        <div class="col-lg-8">
+          <div class="blog-card h-100">
+            <div class="blog-card-header">
+              <h4><a href="java8-new-features.html">Java 8 New Features: Complete Guide with Examples</a></h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="blog-card h-100">
+            <div class="blog-card-header">
+              <h4><a href="#java8-to-java17">Java 8 to Java 17: The Enterprise Upgrade Story Every Team Should Understand</a></h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>

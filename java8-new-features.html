@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java 8 New Features | Gaurav Saxena</title>
+  <meta content="Detailed Java 8 features guide with examples covering functional interfaces, lambda expressions, Stream API, Date and Time API, Optional, and more." name="description">
+  <meta content="Java 8 features, Functional Interface, Lambda, Stream API, Optional, Date Time API" name="keywords">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page blog-page desktop-nav-collapsed">
+
+<header id="header" class="header dark-background d-flex flex-column">
+  <i class="header-toggle d-xl-none bi bi-list"></i>
+
+  <div class="profile-img">
+    <img src="assets/img/my-profile-img.jpg" alt="Gaurav Saxena profile photo" class="img-fluid rounded-circle">
+  </div>
+
+  <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+    <h1 class="sitename">Gaurav Saxena</h1>
+  </a>
+
+  <div class="social-links text-center">
+    <a href="https://github.com/gauravworkss" class="github"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/gauravworks" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    <a href="mailto:saxenagau@gmail.com?subject=Let's%20connect" class="envelope"><i class="bi bi-envelope flex-shrink-0"></i></a>
+  </div>
+
+  <nav id="navmenu" class="navmenu">
+    <ul>
+      <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+      <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+      <li><a href="index.html#achievements"><i class="bi bi-graph-up-arrow navicon"></i> Achievements</a></li>
+      <li><a href="index.html#skills"><i class="bi bi-tools navicon"></i> Skills</a></li>
+      <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+      <li><a href="blog.html" class="active"><i class="bi bi-journal-richtext navicon"></i> Tech Blogs</a></li>
+      <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<button type="button" class="desktop-nav-toggle" aria-label="Toggle navigation panel" aria-expanded="false">
+  <i class="bi bi-layout-sidebar"></i>
+</button>
+
+<button type="button" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">
+  <i class="bi bi-moon-stars"></i>
+</button>
+
+<main class="main">
+  <section class="section light-background">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Tech Blogs</h2>
+      <p>Java engineering deep-dives with practical examples for production teams.</p>
+    </div>
+  </section>
+
+  <section class="section blog-article-page">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <article class="blog-article">
+        <div class="blog-meta">
+          <span><i class="bi bi-calendar3"></i> June 2026</span>
+          <span><i class="bi bi-clock-history"></i> 14 min read</span>
+          <span><i class="bi bi-tag"></i> Java 8</span>
+        </div>
+
+        <h1>Java 8 New Features: Complete Guide with Practical Code Examples</h1>
+
+        <p>Java 8 is one of the most important releases in Java history. Many enterprise teams still describe their journey as "before Java 8" and "after Java 8" because this release changed how we write day-to-day Java code. It brought functional programming style into mainstream Java, introduced a modern Date and Time API, and gave developers a stronger foundation for writing clean, expressive, and maintainable backend services.</p>
+
+        <p>If you are building APIs, event processors, reporting pipelines, or microservices, understanding Java 8 features deeply is still highly valuable. In this article, I will cover each major feature with practical examples that you can use in real projects.</p>
+
+        <h3>1. Functional Interfaces</h3>
+        <p>A functional interface is an interface with exactly one abstract method. It can still have default and static methods, but only one abstract method is allowed. This rule enables lambda expressions and method references.</p>
+
+        <pre><code>@FunctionalInterface
+public interface PriceCalculator {
+    double calculate(double amount, double taxRate);
+
+    default String currency() {
+        return "INR";
+    }
+}</code></pre>
+
+        <p>The <code>@FunctionalInterface</code> annotation is optional, but it is recommended because it gives compile-time safety. If someone accidentally adds a second abstract method later, the compiler will fail fast.</p>
+
+        <h3>2. Built-in Functional Interface Types</h3>
+        <p>Java 8 introduced several ready-to-use functional interfaces in <code>java.util.function</code>. These cover most common patterns so you do not need to create custom interfaces every time.</p>
+
+        <p><strong>Predicate&lt;T&gt;</strong> - takes input, returns boolean.</p>
+        <pre><code>Predicate&lt;String&gt; isLongName = name -&gt; name.length() &gt; 8;
+System.out.println(isLongName.test("GauravSaxena")); // true</code></pre>
+
+        <p><strong>Function&lt;T, R&gt;</strong> - transforms T to R.</p>
+        <pre><code>Function&lt;String, Integer&gt; toLength = String::length;
+System.out.println(toLength.apply("Microservices")); // 13</code></pre>
+
+        <p><strong>Consumer&lt;T&gt;</strong> - consumes input, no return.</p>
+        <pre><code>Consumer&lt;String&gt; logger = msg -&gt; System.out.println("[INFO] " + msg);
+logger.accept("Deployment completed");</code></pre>
+
+        <p><strong>Supplier&lt;T&gt;</strong> - provides output, no input.</p>
+        <pre><code>Supplier&lt;UUID&gt; requestIdSupplier = UUID::randomUUID;
+System.out.println(requestIdSupplier.get());</code></pre>
+
+        <p><strong>BiFunction, BiPredicate, UnaryOperator, BinaryOperator</strong> are also frequently useful for two-argument operations and same-type transformations.</p>
+
+        <h3>3. Lambda Expressions</h3>
+        <p>Lambdas are compact representations of anonymous functions. They remove boilerplate and make business intent clearer, especially in collection and event-driven logic.</p>
+
+        <pre><code>// Traditional anonymous class style
+Runnable oldWay = new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("Running job");
+    }
+};
+
+// Java 8 lambda style
+Runnable newWay = () -&gt; System.out.println("Running job");</code></pre>
+
+        <p>In enterprise code, lambdas improve readability in map/filter operations, callback handling, executor tasks, and custom utility methods. They should still be kept small and focused. If a lambda starts carrying heavy logic, extract that into a named method for maintainability.</p>
+
+        <h3>4. Method References</h3>
+        <p>Method references are shorthand when a lambda simply calls an existing method. They reduce noise and make pipelines easier to scan.</p>
+
+        <pre><code>List&lt;String&gt; users = Arrays.asList("gaurav", "raj", "neha");
+
+users.stream()
+     .map(String::toUpperCase)
+     .forEach(System.out::println);</code></pre>
+
+        <p>Common forms:</p>
+        <p>1. <code>ClassName::staticMethod</code><br>
+        2. <code>instance::instanceMethod</code><br>
+        3. <code>ClassName::instanceMethod</code><br>
+        4. <code>ClassName::new</code> (constructor reference)</p>
+
+        <h3>5. Stream API</h3>
+        <p>Stream API is one of the most transformational Java 8 features. It allows declarative processing of collections and focuses on what to compute, not how to loop manually.</p>
+
+        <pre><code>List&lt;Integer&gt; transactionAmounts = Arrays.asList(1200, 500, 2200, 900, 3000);
+
+int totalHighValue = transactionAmounts.stream()
+    .filter(amount -&gt; amount &gt;= 1000)
+    .mapToInt(Integer::intValue)
+    .sum();
+
+System.out.println(totalHighValue); // 6400</code></pre>
+
+        <p>Key stream operations:</p>
+        <p>1. Intermediate: <code>filter</code>, <code>map</code>, <code>sorted</code>, <code>distinct</code><br>
+        2. Terminal: <code>collect</code>, <code>reduce</code>, <code>forEach</code>, <code>count</code></p>
+
+        <p>Streams can also run in parallel using <code>parallelStream()</code>, but in real systems you should benchmark first. Parallelism is not automatically faster for every workload.</p>
+
+        <h3>6. Optional</h3>
+        <p><code>Optional</code> helps model nullable values explicitly and reduces accidental <code>NullPointerException</code> usage patterns.</p>
+
+        <pre><code>Optional&lt;String&gt; email = Optional.ofNullable(getUserEmail(userId));
+
+String safeEmail = email
+    .filter(e -&gt; e.contains("@"))
+    .orElse("not-available@example.com");
+
+System.out.println(safeEmail);</code></pre>
+
+        <p>Optional is best used in return types where absence is valid and expected. Avoid storing Optional in entity fields or using it as a method parameter in most cases.</p>
+
+        <h3>7. Date and Time API (java.time)</h3>
+        <p>The old <code>Date</code> and <code>Calendar</code> APIs were mutable and error-prone. Java 8 introduced <code>java.time</code>, which is immutable, thread-safe, and much clearer.</p>
+
+        <pre><code>LocalDate today = LocalDate.now();
+LocalDate releaseDate = LocalDate.of(2026, 6, 19);
+
+Period gap = Period.between(releaseDate, today);
+System.out.println("Days since release: " + gap.getDays());
+
+LocalDateTime now = LocalDateTime.now();
+ZonedDateTime indiaTime = ZonedDateTime.now(ZoneId.of("Asia/Kolkata"));
+ZonedDateTime londonTime = indiaTime.withZoneSameInstant(ZoneId.of("Europe/London"));
+
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss");
+System.out.println("India Time: " + formatter.format(indiaTime));
+System.out.println("London Time: " + formatter.format(londonTime));</code></pre>
+
+        <p>Most used types:</p>
+        <p>1. <code>LocalDate</code> - date only<br>
+        2. <code>LocalTime</code> - time only<br>
+        3. <code>LocalDateTime</code> - date and time without timezone<br>
+        4. <code>ZonedDateTime</code> - date/time with timezone<br>
+        5. <code>Instant</code> - machine timestamp for storage/logging</p>
+
+        <h3>8. Default and Static Methods in Interfaces</h3>
+        <p>Java 8 lets interfaces include behavior via default and static methods. This was a major design upgrade because interfaces could evolve without breaking all existing implementations.</p>
+
+        <pre><code>interface PaymentValidator {
+    boolean isValid(String paymentRef);
+
+    default boolean isNotBlank(String value) {
+        return value != null &amp;&amp; !value.trim().isEmpty();
+    }
+
+    static String normalize(String ref) {
+        return ref == null ? "" : ref.trim().toUpperCase();
+    }
+}</code></pre>
+
+        <p>Default methods were critical for library evolution and backward compatibility across large ecosystems.</p>
+
+        <h3>9. Collectors and Grouping</h3>
+        <p>Collectors make aggregation concise and expressive. This is very useful in reporting, billing, and operational dashboards.</p>
+
+        <pre><code>class Txn {
+    String type;
+    int amount;
+    Txn(String type, int amount) { this.type = type; this.amount = amount; }
+    String getType() { return type; }
+    int getAmount() { return amount; }
+}
+
+List&lt;Txn&gt; txns = Arrays.asList(
+    new Txn("UPI", 1200),
+    new Txn("CARD", 900),
+    new Txn("UPI", 1500)
+);
+
+Map&lt;String, Integer&gt; amountByType = txns.stream()
+    .collect(Collectors.groupingBy(
+        Txn::getType,
+        Collectors.summingInt(Txn::getAmount)
+    ));
+
+System.out.println(amountByType); // {UPI=2700, CARD=900}</code></pre>
+
+        <h3>10. CompletableFuture (Concurrency Upgrade)</h3>
+        <p>Java 8 improved async programming with <code>CompletableFuture</code>, making non-blocking task orchestration easier than plain Future.</p>
+
+        <pre><code>CompletableFuture&lt;String&gt; profileFuture = CompletableFuture.supplyAsync(() -&gt; "Profile Loaded");
+CompletableFuture&lt;String&gt; accountFuture = CompletableFuture.supplyAsync(() -&gt; "Account Loaded");
+
+CompletableFuture&lt;String&gt; combined = profileFuture.thenCombine(accountFuture,
+    (p, a) -&gt; p + " | " + a
+);
+
+System.out.println(combined.join());</code></pre>
+
+        <p>For service orchestration, this feature was a foundation for responsive API composition patterns used heavily before reactive stacks became mainstream.</p>
+
+        <h3>Where Java 8 Features Deliver the Most Value</h3>
+        <p>In real production environments, Java 8 features are most impactful in four areas: readability, correctness, scalability, and maintainability. Streams and lambdas reduce imperative boilerplate. Optional and java.time reduce common bug classes. Default methods improve API evolution. CompletableFuture provides cleaner async orchestration. Combined together, they enable engineering teams to ship confidently with less repetitive code.</p>
+
+        <h3>Common Adoption Guidelines</h3>
+        <p>1. Do not overuse functional style in every line; readability first.<br>
+        2. Keep stream pipelines small and understandable.<br>
+        3. Use Optional for return values, not everywhere.<br>
+        4. Standardize java.time usage in all new modules.<br>
+        5. Prefer method references when they improve clarity.</p>
+
+        <h3>Final Thoughts</h3>
+        <p>Java 8 is not just an old release milestone. It is the foundation of modern Java coding standards that still influence Java 11, 17, and beyond. Teams that understand these concepts deeply write cleaner services, reduce production defects, and onboard engineers faster. If you are modernizing an enterprise codebase, mastering Java 8 features is still one of the highest ROI investments you can make.</p>
+      </article>
+
+      <div class="text-center mt-4">
+        <a href="blog.html" class="btn btn-outline-primary">Back to Blogs</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer" class="footer position-relative light-background">
+  <div class="container">
+    <div class="copyright text-center">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Gaurav Saxena</strong> <span>All Rights Reserved</span></p>
+    </div>
+    <div class="credits">
+      Designed by <a href="https://gauravworks.in/">Gaurav</a>
+    </div>
+  </div>
+</footer>
+
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<div id="preloader"></div>
+
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/typed.js/typed.umd.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>
