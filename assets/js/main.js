@@ -11,6 +11,7 @@
    */
   const headerToggleBtn = document.querySelector('.header-toggle');
   const desktopNavToggleBtn = document.querySelector('.desktop-nav-toggle');
+  const themeToggleBtn = document.querySelector('.theme-toggle');
 
   function headerToggle() {
     document.querySelector('#header').classList.toggle('header-show');
@@ -36,6 +37,32 @@
       toggleDesktopNavButtonIcon();
     });
     toggleDesktopNavButtonIcon();
+  }
+
+  function applyTheme(theme) {
+    const isDarkTheme = theme === 'dark';
+    document.body.classList.toggle('theme-dark', isDarkTheme);
+    if (themeToggleBtn) {
+      const icon = themeToggleBtn.querySelector('i');
+      themeToggleBtn.setAttribute('aria-pressed', isDarkTheme ? 'true' : 'false');
+      icon.classList.toggle('bi-moon-stars', !isDarkTheme);
+      icon.classList.toggle('bi-sun', isDarkTheme);
+    }
+  }
+
+  if (themeToggleBtn) {
+    const storageKey = 'site-theme';
+    let savedTheme = localStorage.getItem(storageKey);
+    if (savedTheme !== 'dark' && savedTheme !== 'light') {
+      savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    applyTheme(savedTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      localStorage.setItem(storageKey, nextTheme);
+    });
   }
 
   /**
